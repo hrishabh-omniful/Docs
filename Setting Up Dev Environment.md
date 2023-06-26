@@ -50,7 +50,9 @@ This command will open the bash profile file in the nano text editor.
 -   Set the GOROOT variable: Add the following line to the bash profile
     > file, specifying the location where you installed Golang:
 
-**export GOROOT=/usr/local/go**
+```bash
+export GOROOT=/usr/local/go
+```
 
 Make sure to replace **/usr/local/go** with the actual path where Golang
 is installed if it\'s different on your system.
@@ -58,7 +60,9 @@ is installed if it\'s different on your system.
 -   Set the GOPATH variable: Below the line for GOROOT, add the
     > following line to set the GOPATH variable:
 
-**export GOPATH**=\$HOME**/go**
+```bash
+export GOPATH=\$HOME/go
+```
 
 By default, the GOPATH is set to \$HOME**/go**, but you can specify a
 different directory if desired.
@@ -71,13 +75,18 @@ different directory if desired.
     > Load the updated shell profile: In the Terminal, run the following
     > command to reload the bash profile and apply the changes:
 
-source **\~/.bashrc OR** source **\~/.zshrc**
+```bash
+source ~/.bashrc
+```
+ **OR** **source ~/.zshrc**
 
 Now, the GOROOT and GOPATH environment variables should be set correctly
 on your macOS. You can verify this by running the following command in
 the Terminal:
 
-**go** env
+```bash
+go env
+```
 
 It should display the values of GOROOT and GOPATH among other Go-related
 environment variables.
@@ -92,7 +101,9 @@ environment variables.
             > the following command to check if Git is already installed
             > on your system:
 
-git \--version
+```bash
+git --version
+```
 
 If Git is installed, it will display the version number.
 
@@ -107,14 +118,18 @@ not found.
     > Once Homebrew is installed, run the following command in the
     > Terminal to install Git:
 
+```bash
 brew install git
+```
 
 This command will download and install the latest version of Git.
 
 -   Verify the Git installation: After the installation is complete, run
     > the following command to verify that Git is installed properly:
 
-git \--version
+```bash
+git --version
+```
 
 You should see the Git version number displayed in the Terminal.
 
@@ -128,7 +143,7 @@ You should see the Git version number displayed in the Terminal.
 
         > Once installed, launch GoLand.
 
-        > **\*Pro-tip:** Login JetBrains with your Student ID to get 1
+        > **Pro-tip:** Login JetBrains with your Student ID to get 1
         > Year Subscription to IDEs for free.
 
     > Generate SSH key for GitHub:
@@ -137,8 +152,11 @@ You should see the Git version number displayed in the Terminal.
 
         > Run the following command to generate an SSH key:
 
+```bash
 ssh-keygen **-t** **ed25519** **-C** "your_email@example.com\"
+```
 
+```{=html}
 -   -   You can replace the email address with your own email associated
         > with GitHub.
 
@@ -151,22 +169,26 @@ ssh-keygen **-t** **ed25519** **-C** "your_email@example.com\"
         > Two files will be generated: id_ed25519 (private key) and
         > id_ed25519.pub (public key).
 
-```{=html}
-<!-- -->
 ```
 -   -   Add SSH key to SSH agent:
 
         > Start the SSH agent by running the following command:
 
-eval \"\$(ssh-agent -s)"
+        ```bash
+        eval \"\$(ssh-agent -s)"
+        ```
 
 Add your SSH private key to the SSH agent by running the command:
 
+```bash
 ssh-add -K **\~/.ssh/id_ed25519**
+```
 
 Copy the public key to clipboard
 
+```bash
 pbcopy \< **\~/.ssh/id_ed25519.pub**
+```
 
 -   Add SSH key to GitHub:
 
@@ -188,7 +210,9 @@ pbcopy \< **\~/.ssh/id_ed25519.pub**
         > OR if key is not present in the clipboard, launch the terminal
         > and run command:
 
+```bash
 pbcopy \< **\~/.ssh/id_ed25519.pub**
+```
 
 -   -   Paste the key into the \"Key\" field on the GitHub website.
 
@@ -201,7 +225,9 @@ pbcopy \< **\~/.ssh/id_ed25519.pub**
         -   Run the following command to test the SSH connection with
             > GitHub:
 
+            ```bash
             > ssh -T git@github.com
+            ```
 
             > If the connection is successful, you\'ll see a message
             > like \"Hi username! You\'ve successfully authenticated,
@@ -241,17 +267,23 @@ go =\> src =\> [github.com](http://github.com/) =\> Omniful
 
 > Open Terminal and Run Below Commands:
 >
+```bash
 > cd go/src/github.com/Omniful
+```
 >
 > Let's say we are cloning sales-channel-service repository
 
+```bash
 git clone git@github.com:omniful/sales-channel-service.git
+```
 
 Open the sales-channel-service project folder in GoLand
 
 Open Integrated terminal and run:
 
+```bash
 go mod tidy
+```
 
 to sync all dependencies of project.
 
@@ -267,23 +299,28 @@ This step ensures that Go treats the repository as private and allows
 access to it. Run the following command in terminal after above
 configurations:
 
+```bash
 go env -w GOPRIVATE="github.com/omniful/\"
+```
 
 Configure your Git settings by creating or modifying
 the \~/.gitconfig file.
 
 Open the file and add the following configuration, replacing {name} with
 your Git username and {email} with your Git email:
+```text
 
 \[user\]
 
-name = {name}
-
-email = {email}
+    name = {name}
+    
+    email = {email}
 
 \[url \"ssh://git@github.com/\"\]
 
-insteadOf = https://github.com/
+    insteadOf = https://github.com/
+
+```
 
 This configuration tells Git to use SSH for GitHub URLs instead of
 HTTPS, which is required for accessing private repositories. Save the
