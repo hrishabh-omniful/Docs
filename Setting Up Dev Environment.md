@@ -61,14 +61,14 @@ is installed if it\'s different on your system.
     > following line to set the GOPATH variable:
 
 ```bash
-export GOPATH=\$HOME/go
+export GOPATH=$HOME/go
 ```
 
 By default, the GOPATH is set to \$HOME**/go**, but you can specify a
 different directory if desired.
 
--   Save and exit the file: Press Ctrl + X (on macOS **\^+x**) to exit
-    > nano, and it will prompt you to save the changes. Press Y to
+-   Save and exit the file: Press `Ctrl + X` (on macOS `**\^+x**`) to exit
+    > nano, and it will prompt you to save the changes. Press `Y` to
     > confirm the changes and then press Enter to save the file with the
     > same name.
 
