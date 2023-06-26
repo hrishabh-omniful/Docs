@@ -37,11 +37,11 @@ macOS, you can follow these steps:
     > following command:
 
 ```bash
-nano \~/.bashrc
+nano ~/.bashrc
 ```
 OR 
 ```bash
-nano \~/.zshrc
+nano ~/.zshrc
 ```
 (If you are using zsh)
 
