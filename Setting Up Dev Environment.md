@@ -36,7 +36,14 @@ macOS, you can follow these steps:
     > Locate your bash profile: In the Terminal window, enter the
     > following command:
 
-**nano \~/.bashrc OR nano \~/.zshrc** (If you are using zsh)
+```bash
+nano \~/.bashrc
+```
+OR 
+```bash
+nano \~/.zshrc
+```
+(If you are using zsh)
 
 This command will open the bash profile file in the nano text editor.
 
