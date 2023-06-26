@@ -153,7 +153,7 @@ You should see the Git version number displayed in the Terminal.
         > Run the following command to generate an SSH key:
 
 ```bash
-ssh-keygen **-t** **ed25519** **-C** "your_email@example.com\"
+ssh-keygen -t ed25519 -C "your_email@example.com\"
 ```
 
 ```{=html}
@@ -175,19 +175,19 @@ ssh-keygen **-t** **ed25519** **-C** "your_email@example.com\"
         > Start the SSH agent by running the following command:
 
         ```bash
-        eval \"\$(ssh-agent -s)"
+        eval "$(ssh-agent -s)"
         ```
 
 Add your SSH private key to the SSH agent by running the command:
 
 ```bash
-ssh-add -K **\~/.ssh/id_ed25519**
+ssh-add -K ~/.ssh/id_ed25519
 ```
 
 Copy the public key to clipboard
 
 ```bash
-pbcopy \< **\~/.ssh/id_ed25519.pub**
+pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 -   Add SSH key to GitHub:
@@ -211,7 +211,7 @@ pbcopy \< **\~/.ssh/id_ed25519.pub**
         > and run command:
 
 ```bash
-pbcopy \< **\~/.ssh/id_ed25519.pub**
+pbcopy < ~/.ssh/id_ed25519.pub
 ```
 
 -   -   Paste the key into the \"Key\" field on the GitHub website.
@@ -300,7 +300,7 @@ access to it. Run the following command in terminal after above
 configurations:
 
 ```bash
-go env -w GOPRIVATE="github.com/omniful/\"
+go env -w GOPRIVATE="github.com/omniful/"
 ```
 
 Configure your Git settings by creating or modifying
@@ -310,13 +310,13 @@ Open the file and add the following configuration, replacing {name} with
 your Git username and {email} with your Git email:
 ```text
 
-\[user\]
+[user]
 
     name = {name}
     
     email = {email}
 
-\[url \"ssh://git@github.com/\"\]
+[url "ssh://git@github.com/"]
 
     insteadOf = https://github.com/
 
