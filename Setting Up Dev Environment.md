@@ -325,3 +325,72 @@ your Git username and {email} with your Git email:
 This configuration tells Git to use SSH for GitHub URLs instead of
 HTTPS, which is required for accessing private repositories. Save the
 changes to \~/.gitconfig.
+
+
+**Configuring AWS CLI**
+
+If you have sudo permissions, you can install the AWS CLI for all users
+on the computer.
+
+-   Download the file using the curl command.
+
+curl \"https://awscli.amazonaws.com/AWSCLIV2.pkg\" -o \"AWSCLIV2.pkg\" 
+
+-   Run the standard macOS installer program, specifying the
+    downloaded .pkg file as the source. Use the -pkg parameter to
+    specify the name of the package to install, and the -target
+    / parameter for which drive to install the package to. The files are
+    installed to /usr/local/aws-cli, and a symlink is automatically
+    created in /usr/local/bin. You must include sudo on the command to
+    grant write permissions to those folders.
+
+sudo installer -pkg ./AWSCLIV2.pkg -target /
+
+-   To verify that the shell can find and run the aws command in
+    your \$PATH, use the following commands.
+
+**which aws** ---\> (/usr/local/bin/aws)
+
+**aws \--version** ---\> (aws-cli/2.10.0 Python/3.11.2 Darwin/18.7.0
+botocore/2.4.5)
+
+-   You can also access the AWS CLI version 2 from your computer [using
+    a Docker
+    image.](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-docker.html)
+
+The AWS CLI stores sensitive credential information that you specify
+with aws configure in a local file named credentials, in a folder
+named .aws in your home directory. The less sensitive configuration
+options that you specify with aws configure are stored in a local file
+named config, also stored in the .aws folder in your home directory.
+
+Run Below Command and Enter your credentials:
+
+```bash
+aws configure
+```
+
+You can use Below commands to get and set configurations in AWS CLI:
+
+```bash
+aws configure set region us-west-2 \--profile {profile-name}
+```
+```bash
+aws configure get region \--profile {profile-name}
+```
+
+You can also set Your Credentials in environment variables (Replace your
+credentials here):
+
+```bash
+export AWS_ACCESS_KEY_ID=AKIAIOSFODNN7EXAMPLE
+
+export AWS_SECRET_ACCESS_KEY=wJalrXUtnFEMI/K7MDENG/ bPxRfiCYEXAMPLEKEY
+
+export AWS_DEFAULT_REGION=us-west-2
+```
+
+
+You can follow below guide for better understanding:
+
+<https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-welcome.html>
